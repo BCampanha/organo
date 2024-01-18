@@ -7,6 +7,7 @@ const Time = (props) => {
   const iconePadrao = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'
 
   return(
+    (props.colaboradores.length > 0) &&
     <section className='time' style={cssTime}>
       <h3 style={cssTimeH3} >{props.nome}</h3>
       <div className='colaboradores'>
