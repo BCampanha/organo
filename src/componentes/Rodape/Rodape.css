@@ -1,4 +1,4 @@
-.rodape {
+.rodape_ {
   background-color: #6278F7;
   display: flex;
   justify-content: space-around;
@@ -6,11 +6,11 @@
   padding: 64px;
 }
 
-.rodape section img {
+.rodape_ section img {
   display: inline-block;
   margin: 32px 32px 0px 0px;
 }
 
-.rodape section p {
+.rodape_ section p {
   color: white
 }
