@@ -4,6 +4,7 @@ import Colaborador from './../Colaborador'
 const Time = (props) => {
   const cssTime = {backgroundColor: props.corSecundaria}
   const cssTimeH3 = {borderColor: props.corPrimaria}
+  const iconePadrao = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'
 
   return(
     <section className='time' style={cssTime}>
@@ -14,7 +15,7 @@ const Time = (props) => {
             key={colaborador.nome}
             nome={colaborador.nome}
             cargo={colaborador.cargo}
-            imagem={colaborador.imagem}
+            imagem={colaborador.imagem || iconePadrao}
           />)}
       </div>
     </section>
