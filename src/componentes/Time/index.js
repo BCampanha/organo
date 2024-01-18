@@ -15,8 +15,9 @@ const Time = (props) => {
           <Colaborador
             key={colaborador.nome}
             nome={colaborador.nome}
-            cargo={colaborador.cargo}
             imagem={colaborador.imagem || iconePadrao}
+            cargo={colaborador.cargo}
+            corDeFundo={props.corPrimaria}
           />)}
       </div>
     </section>
