@@ -2,7 +2,7 @@ import './Time.css'
 import hexToRgba from 'hex-to-rgba';
 import Colaborador from './../Colaborador'
 
-const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
+const Time = ({ time, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
   const cssTime = {backgroundColor: hexToRgba(time.corPrimaria, '0.3'), backgroundImage: 'url(/imagens/fundo.png)'}
   const cssTimeH3 = {borderColor: time.corPrimaria}
 
@@ -24,6 +24,7 @@ const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
             colaborador={colaborador}
             corDeFundo={time.corPrimaria}
             aoDeletar={aoDeletar}
+            aoFavoritar={aoFavoritar}
           />
           )
         }
