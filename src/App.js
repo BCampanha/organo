@@ -222,11 +222,11 @@ function App() {
 
   const [colaboradores, setColaboradores] = useState(inicial)
 
-  function deletarColaborador(id) {
+  const deletarColaborador = (id) => {
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
   }
 
-  function mudarCorDoTime(cor, id) {
+  const mudarCorDoTime = (cor, id) => {
     setTimes(times.map(time => {
       if(time.id === id) {
         time.corPrimaria = cor;
@@ -235,10 +235,15 @@ function App() {
     }));
   }
 
+  const cadastrarTime = (novoTime) => {
+    setTimes([...times, {...novoTime, id: uuidv4()}])
+  }
+
   return (
     <div className="App">
       <Banner/>
       <Formulario
+        cadastrarTime={novoTime => cadastrarTime(novoTime)}
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
       />
@@ -248,7 +253,7 @@ function App() {
           <Time
             mudarCor={mudarCorDoTime}
             time={time}
-            key={time.nome}
+            key={time.id}
             colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
             aoDeletar={deletarColaborador}
           />
