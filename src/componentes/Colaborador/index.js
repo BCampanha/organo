@@ -1,11 +1,16 @@
 import './Colaborador.css'
 
 // const Colaborador = (props) => {
-const Colaborador = ({ nome, imagem, cargo, corDeFundo }) => {
+const Colaborador = ({ nome, imagem, cargo, corDeFundo, aoDeletar }) => {
   const css = {backgroundColor: corDeFundo}
 
   return(
     <div className='colaborador'>
+      <button
+        className='deletar'
+        onClick={aoDeletar}>
+          deletar
+      </button>
       <div className='cabecalho' style={css}>
         <img src={imagem} alt=''/>
       </div>
