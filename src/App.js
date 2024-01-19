@@ -204,15 +204,16 @@ function App() {
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
       />
-      {times.map(time =>
-        <Time
-          nome={time.nome}
-          corPrimaria={time.corPrimaria}
-          corSecundaria={time.corSecundaria}
-          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-          key={time.nome}
-        />
-      )}
+      <section className='times'>
+        <h1>Minha organização</h1>
+        {times.map(time =>
+          <Time
+            time={time}
+            colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+            key={time.nome}
+          />
+        )}
+      </section>
       <Rodape/>
     </div>
   );
