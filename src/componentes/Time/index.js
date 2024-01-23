@@ -1,24 +1,34 @@
 import './Time.css'
+import hexToRgba from 'hex-to-rgba';
 import Colaborador from './../Colaborador'
 
-const Time = (props) => {
-  const cssTime = {backgroundColor: props.corSecundaria}
-  const cssTimeH3 = {borderColor: props.corPrimaria}
-  const iconePadrao = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'
+const Time = ({ time, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
+  const cssTime = {backgroundColor: hexToRgba(time.corPrimaria, '0.3'), backgroundImage: 'url(/imagens/fundo.png)'}
+  const cssTimeH3 = {borderColor: time.corPrimaria}
 
   return(
-    (props.colaboradores.length > 0) &&
+    (colaboradores.length > 0) &&
     <section className='time' style={cssTime}>
-      <h3 style={cssTimeH3} >{props.nome}</h3>
+      <input 
+        value={time.corPrimaria}
+        type='color'
+        className='input-cor'
+        onChange={evento => mudarCor(evento.target.value, time.id)}
+      />
+      <h3 style={cssTimeH3} >{time.nome}</h3>
       <div className='colaboradores'>
-        {props.colaboradores.map(colaborador =>
-          <Colaborador
-            key={colaborador.nome}
-            nome={colaborador.nome}
-            imagem={colaborador.imagem || iconePadrao}
-            cargo={colaborador.cargo}
-            corDeFundo={props.corPrimaria}
-          />)}
+        {colaboradores.map(colaborador => {
+          return (
+            <Colaborador
+            key={colaborador.id}
+            colaborador={colaborador}
+            corDeFundo={time.corPrimaria}
+            aoDeletar={aoDeletar}
+            aoFavoritar={aoFavoritar}
+          />
+          )
+        }
+          )}
       </div>
     </section>
   )
